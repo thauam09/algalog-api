@@ -59,5 +59,5 @@ public class Entrega {
 	private OffsetDateTime dataPedido;
 
 	@JsonProperty(access = Access.READ_ONLY)
-	private LocalDateTime dataFinalizacao;
+	private OffsetDateTime dataFinalizacao;
 }
