@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +32,6 @@ public class EntregaController {
 
 	private EntregaRepository entregaRepository;
 	private SolicitacaoEntregaService solicitacaoEntregaService;
-	private ModelMapper modelMapper;
 	private FinalizacaoEntregaService finalizacaoEntregaService;
 	private EntregaAssembler entregaAssembler;
 
@@ -44,7 +42,7 @@ public class EntregaController {
 		Entrega entregaSolicitada = solicitacaoEntregaService.solicitar(novaEntrega);
 		return entregaAssembler.toModel(entregaSolicitada);
 	}
-	
+
 	@PutMapping("/{entregaId}/finalizacao")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void finalizar(@PathVariable Long entregaId) {
